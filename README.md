@@ -33,8 +33,6 @@ Additionally the website requires at least six pages/sections - as outlined by p
 
 [Running The Web App](#running-the-web-app)
 
-[Packages Required](#packages-required)
-
 [Folder structure](#folder-structure)
 
 [Other](#other)
