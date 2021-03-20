@@ -23,6 +23,13 @@ Additionally the website requires at least six pages/sections - as outlined by p
 * One page giving feedback to users
 * One page showing aggregate results & usage statistics
 
+#### Features
+* Login Page - Remember credentials for future autologin, Forgot password, need an account?
+* User Registration page - Ask if they already have an account
+* User not loged in can only have access to the home page. To access other pages they need to be loged in.
+* If user is not logged in and tries to access a restricted page, remember that page, redirect the user to the login page, after successfull login, redirect the user to the page they wanted to access.
+* ... To be added...
+
 ## Development Environment
 
 ### Sections
