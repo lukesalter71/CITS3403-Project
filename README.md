@@ -110,27 +110,33 @@ The nice thing about pull requests is that if you need to make any changes, you 
 ### Running The web app
 Make sure you have python 3 installed. If you dont have it you can download it from [python.org](https://www.python.org/downloads/).
 
-Once you have made sure you have python 3 installed, go ahead and download flask using pip.
-If you are on a macbook/linux the terminal command would be:
+In the project folder you will see that there is a ```scripts``` directory. To run the app locally simply run the script inside of the folder with the following command:
 
-```pip3 install flask```
+```shell
+./scripts/build-and-run.sh
+```
 
-I have just added a python package called app which will contain the ```__init__.py``` file that will run our web app. If you go inside the file you'll see how simple it is to add pages. At the moment there are two pages, but to add more you would simply copy the example function and write a new app route with the name of the url that you want and dont forget to give your function a different name.
+If you get an error after this script that looks like this:
+```shell
+zsh: permission denied: ./scripts/build-and-run.sh
+```
+Then you will need to give the script execution permission by running:
+```shell
+chmod u+x ./scripts/build-and-run.sh
+```
+Once you run that you can run the ```build-and-run.sh``` script to build the web app locally.
 
-All you need to do to run the web app is to run the ```__init__.py``` file like you would any other python program.
-If you are running the main function with:
+This script will install all the missing dependencies that you require from the ```requirements.txt``` file. If you are using a dependency that is not listed in this file then add the new dependency to the file.
 
-```app.run()```
-
-Then anytime you make changes to your code you would have to kill and re run the program. To avoid this run the web app in debug mode, that way in order to see the changes you make you just need to refresh the page. You can do this by using the following in your main:
-
-```app.run(debug=True)```
+If you are running the web app with: ```app.run()```, then anytime you make changes to your code you would have to kill and re-run the program. To avoid this run the web app in debug mode, that way in order to see the changes you make you just need to refresh the page. You can do this by using: ```app.run(debug=True)```
 
 Just dont forget to change it back to ```app.run()``` before you put up a pull request.
 
 ### Folder structure
 
-To keep our code nice and clean we need to seperate different files into different folders. We should have a templates folder that will contain all our html files. A static folder will that will contain static files, in other words all our css, images and javascript files. When we add our python scripts we should probably also make a folder for them aswell.
+Our folder structure will closely follow the specifications outlined in the flask [Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/tutorial/layout/). There is also more information available in Flasks [Quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/) docs.
+
+All ```HTML``` files will live inside of the ```Templates folder```, all images, css files & JavaScript files will live inside of the ```static``` folder.
 
 ### Other
 
