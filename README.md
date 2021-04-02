@@ -2,7 +2,21 @@
 
 ## Project: Build a fitness web app that teaches nutrition & physical exercises
 
-#### Project Goal
+## Sections
+
+[Project Overview](#project-overview)
+
+[Git setup](#gitsetup)
+
+[Branching](#branching)
+
+[Running The Web App](#running-the-web-app)
+
+[Folder structure](#folder-structure)
+
+[Other](#other)
+
+### Project Overview
 The goal of this project is to develop a web-based platform, where users can learn about nutrition and physical exercises for different types of fitness goals. Users can then take short quizes/assessments on what they learn and also track & save any progress they make over time.
 
 The material on the page needs to be:
@@ -31,19 +45,6 @@ Additionally the website requires at least six pages/sections - as outlined by p
 * ... To be added...
 
 ## Development Environment
-
-### Sections
-
-[git setup](#gitsetup)
-
-[Branching](#branching)
-
-[Running The Web App](#running-the-web-app)
-
-[Folder structure](#folder-structure)
-
-[Other](#other)
-
 
 ### git setup
 Since we are using git to collaborate it is important that you get familiar with branching, rebasing, merging & pull requests in order to keep the workflow smooth.
@@ -110,23 +111,43 @@ The nice thing about pull requests is that if you need to make any changes, you 
 ### Running The web app
 Make sure you have python 3 installed. If you dont have it you can download it from [python.org](https://www.python.org/downloads/).
 
-In the project folder you will see that there is a ```scripts``` directory. To run the app locally simply run the script inside of the folder with the following command:
+In the project folder you will see that there is a ```scripts``` directory. This directory contains three different files at the moment. Currently you can run this web app using docker or run it locally.
+
+To run the app locally first you need to resolve all the required dependencies by running the build script like this:
 
 ```shell
-./scripts/build-and-run.sh
+./scripts/build.sh
 ```
-
-If you get an error after this script that looks like this:
-```shell
-zsh: permission denied: ./scripts/build-and-run.sh
-```
-Then you will need to give the script execution permission by running:
-```shell
-chmod u+x ./scripts/build-and-run.sh
-```
-Once you run that you can run the ```build-and-run.sh``` script to build the web app locally.
 
 This script will install all the missing dependencies that you require from the ```requirements.txt``` file. If you are using a dependency that is not listed in this file then add the new dependency to the file.
+
+Once you have all the required dependencies you can go ahead and run the app like this:
+
+```shell
+./scripts/run.sh
+```
+
+If you get an error after running these scripts that looks like this:
+
+```shell
+zsh: permission denied: ./scripts/filename.sh
+```
+
+Then it means you dont have execution permissions and you will need to give the script execution permission by running:
+
+```shell
+chmod u+x ./scripts/filename.sh
+```
+
+Alternatively you can run the app fully from docker by running the ```build-and-run-docker.sh``` script like this:
+
+```shell
+./scripts/build-and-run-docker.sh
+```
+
+To run the app from docker you will need to install docker on your machine which you can do from [here](https://www.docker.com/products/docker-desktop).
+
+If you are not familiar with docker then read up on the [Docker Documentation](https://docs.docker.com/get-started/overview/). (Althought this is not really necessary but it is useful to know how to use docker as it makes working in teams a lot easier).
 
 If you are running the web app with: ```app.run()```, then anytime you make changes to your code you would have to kill and re-run the program. To avoid this run the web app in debug mode, that way in order to see the changes you make you just need to refresh the page. You can do this by using: ```app.run(debug=True)```
 
@@ -137,6 +158,11 @@ Just dont forget to change it back to ```app.run()``` before you put up a pull r
 Our folder structure will closely follow the specifications outlined in the flask [Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/tutorial/layout/). There is also more information available in Flasks [Quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/) docs.
 
 All ```HTML``` files will live inside of the ```Templates folder```, all images, css files & JavaScript files will live inside of the ```static``` folder.
+
+### Resources
+[Docker Documentation](https://docs.docker.com/get-started/overview/)
+
+[Flask Documentation](https://flask.palletsprojects.com/)
 
 ### Other
 
