@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/courses.css') }}">
+    <!-- Font Awesome Dumbbell -->
+    <script src="https://kit.fontawesome.com/5c1e507e2a.js" crossorigin="anonymous"></script>
+    <title>Gainz</title>
+</head>
+<body>   
+    <header class="hero">
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <div class="navbarleft">
+                <h1 class="logo">
+                    <span class="text-primary"><i class="fas fa-dumbbell"></i> PT</span>Pal
+                </h1>
+                <a id="home-btn" href="/home">Home</a>              
+            </div>
+            <div class="profile">
+                <img class="profile-pic" 
+                src="{{ url_for('static', filename='images/profile/default.jpg') }}">
+            </div>
+        </nav>
+        <!-- Learning Pathways -->
+        <div class="pathways-container">
+            <h1>Choose your learning pathway</h1>
+            <div class="pathways">
+                <div id="muscle-container">
+                    <div id="muscle-img"></div>
+                    <p>Build Muscle</p>
+                </div>
+                <div id="strength-container">
+                    <div id="strength-img"></div>
+                    <p>Build Strength</p>
+                </div>
+                <div id="weight-container">
+                    <div id="weight-img"></div>
+                    <p>Lose Weight</p>
+                </div>
+            </div>
+        </div> 
+    </header>  
+    <script src="{{ url_for('static', filename='javascript/courses.js') }}"></script>  
+</body>
+</html>
