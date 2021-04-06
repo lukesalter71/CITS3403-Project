@@ -139,7 +139,7 @@ img {
 .banner {
     width: 1000px;
     height: 400px;
-    background-image: url(banner-image.jpg);
+    background-image: url(../images/banner-image.jpg);
     background-position: center center;
     background-size: cover;
 }
