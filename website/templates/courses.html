@@ -1,43 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/utilities.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/courses.css') }}">
     <!-- Font Awesome Dumbbell -->
     <script src="https://kit.fontawesome.com/5c1e507e2a.js" crossorigin="anonymous"></script>
-    <title>Gainz</title>
+    <title>Pathways</title>
 </head>
 <body>   
     <header class="hero">
         <!-- Navigation bar -->
-        <nav class="navbar">
-            <div class="navbarleft">
+        <div class="navbar">
+            <div class="container flex">
                 <h1 class="logo">
-                    <span class="text-primary"><i class="fas fa-dumbbell"></i> PT</span>Pal
+                    <span class="highlights"><i class="fas fa-dumbbell"></i> Gym</span>Pal
                 </h1>
-                <a id="home-btn" href="/home">Home</a>              
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                        <li><a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="profile">
-                <img class="profile-pic" 
-                src="{{ url_for('static', filename='images/profile/default.jpg') }}">
-            </div>
-        </nav>
+        </div>
         <!-- Learning Pathways -->
         <div class="pathways-container">
             <h1>Choose your learning pathway</h1>
             <div class="pathways">
-                <div id="muscle-container">
-                    <div id="muscle-img"></div>
+                <div id="muscle-container" class ="card-btn">
+                    <div id="muscle-img" class="card-btn-img"></div>
                     <p>Build Muscle</p>
                 </div>
-                <div id="strength-container">
-                    <div id="strength-img"></div>
+                <div id="strength-container" class ="card-btn">
+                    <div id="strength-img" class="card-btn-img"></div>
                     <p>Build Strength</p>
                 </div>
-                <div id="weight-container">
-                    <div id="weight-img"></div>
+                <div id="weight-container" class ="card-btn">
+                    <div id="weight-img" class="card-btn-img"></div>
                     <p>Lose Weight</p>
                 </div>
             </div>

@@ -16,6 +16,5 @@ def home():
 
 
 @main.route('/courses')
-@login_required
 def courses():
     return render_template('courses.html')

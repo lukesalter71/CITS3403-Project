@@ -11,24 +11,24 @@
 <body>
 <div class="navbar">
     <div class="container flex">
-        <h1 class="logo">Gym Pal</h1>
+        <h1 class="logo">
+            <span class="highlights"><i class="fas fa-dumbbell"></i> Gym</span>Pal
+        </h1>
         <nav>
             <ul>
                 <li><a href="{{ url_for('main.index') }}">Home</a></li>
                 <li><a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a></li>
-                <li><a href="#" class="navbar-item">Content</a></li>
             </ul>
         </nav>
     </div>
 </div>
-
 <section class="showcase">
     <div class="container grid">
         <div class="showcase-text">
             <h1>Body Building Made Easy</h1>
             <p>Come and learn with us all things fitness. Our courses cover a wide range of topics from Strength &
                 Muscle building and even building your meals</p>
-            <a href="features.html" class="btn btn-outline">Read More</a>
+            <a href="/courses" class="btn btn-outline">Read More</a>
         </div>
 
         <div class="showcase-form card">
