@@ -15,6 +15,6 @@ def home():
     return render_template('homepage.html', title='Home')
 
 
-@main.route('/courses')
+@main.route('/readmore')
 def courses():
-    return render_template('courses.html')
+    return render_template('readmore.html')
