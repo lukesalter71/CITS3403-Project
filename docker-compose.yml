@@ -5,6 +5,6 @@ services:
     image: web-app
     build:
       context: .
-      dockerfile: webApp.dockerfile
+      dockerfile: webApp.Dockerfile
     ports:
       - "5000:5000"
