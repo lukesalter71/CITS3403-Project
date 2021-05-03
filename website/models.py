@@ -42,6 +42,7 @@ class Text_Answer(db.Model):
     __tablename__ = 'text_answer'
     id = db.Column(db.Integer, primary_key=True)
     question_id = db.Column(db.Integer, db.ForeignKey('question_bank.id'))
+    answer_text = db.Column(db.String(64))
 
 class Enrolments(db.Model):
     __tablename__ = 'enrolments'
