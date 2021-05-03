@@ -10,7 +10,7 @@ auth = Blueprint('auth', __name__)
 def login():
     return render_template('login.html')
 
-@auth.route('/login', methods=['POST'])
+@auth.route('/login', methods=['GET', 'POST'])
 def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
@@ -18,7 +18,7 @@ def login_post():
 
     user = User.query.filter_by(email=email).first()
 
-    if not user and not check_password_hash(user.password, password):
+    if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
         return redirect(url_for('auth.login'))
 
