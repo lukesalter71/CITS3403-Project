@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
+from . import db
 
 main = Blueprint('main', __name__)
 
@@ -20,4 +21,4 @@ def courses():
     return render_template('readmore.html')
 
 
-#Quiz taking view function (todo)
+@main.route('/quiz/<quizid>', methods=['GET','POST'])
