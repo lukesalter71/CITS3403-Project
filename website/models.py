@@ -21,28 +21,25 @@ class Quizzes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64))
     course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
+    # created one-to-many relationship between quizzes and questions.
+    questions = db.relationship('Question_Bank', backref = 'quizzes', lazy='joined')
 
 
 class Question_Bank(db.Model):
     __tablename__ = 'question_bank'
     id = db.Column(db.Integer, primary_key=True)
     quiz_id = db.Column(db.Integer, db.ForeignKey('quizzes.id'))
+    question_type = db.Column(db.Integer) # 1 - Text Answer, 2 - Multi-choice
     question_text = db.Column(db.String(128))
+    #created one-to-many relationship between answers and question. 
+    answers = db.relationship('Answer', backref = 'question_bank', lazy = 'joined')
 
-
-class MCQ_Answer(db.Model):
-    __tablename__ = 'mcq_answer'
-    id = db.Column(db.Integer, primary_key=True)
+class Answer(db.Model):
+    __tablename__ = 'answer'
+    id = db.column(db.Integer, primary_key = True)
     question_id = db.Column(db.Integer, db.ForeignKey('question_bank.id'))
     is_correct = db.Column(db.Boolean())
     answer_text = db.Column(db.String(128))
-
-
-class Text_Answer(db.Model):
-    __tablename__ = 'text_answer'
-    id = db.Column(db.Integer, primary_key=True)
-    question_id = db.Column(db.Integer, db.ForeignKey('question_bank.id'))
-    answer_text = db.Column(db.String(64))
 
 class Enrolments(db.Model):
     __tablename__ = 'enrolments'
