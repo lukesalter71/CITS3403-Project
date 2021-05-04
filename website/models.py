@@ -36,7 +36,7 @@ class Question_Bank(db.Model):
 
 class Answer(db.Model):
     __tablename__ = 'answer'
-    id = db.column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     question_id = db.Column(db.Integer, db.ForeignKey('question_bank.id'))
     is_correct = db.Column(db.Boolean())
     answer_text = db.Column(db.String(128))
