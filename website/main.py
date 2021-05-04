@@ -21,5 +21,4 @@ def courses():
     return render_template('readmore.html')
 
 
-#Quiz taking view function:
-@main.route('/quiz/<quizid>')
+#Quiz taking view function (todo)
