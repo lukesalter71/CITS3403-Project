@@ -56,4 +56,4 @@ def quiz(quizid):
         session.modified = True
         return(redirect(url_for('quiz',quizid = quizid))) 
 
-    return () #GET Requests will go to the quiz page template (using render_template)
+    return() #(render_template('quiz.html', title="Quiz", question_form=question_form,question = question))  -- Commented out since 'quiz.html' is not ready.
