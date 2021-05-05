@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, RadioField, TextAreaField
 from wtforms.validators import DataRequired, ValidationError, Optional, Length
-from website.models import Question_Bank, Text_Answer, MCQ_Answer
 
 
 
