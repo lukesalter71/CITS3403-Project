@@ -10,10 +10,10 @@ def index():
     return render_template('landing.html')
 
 
-@main.route('/home')
+@main.route('/courses')
 @login_required
 def home():
-    return render_template('homepage.html', title='Home')
+    return render_template('courses.html', title='courses')
 
 
 @main.route('/readmore')
