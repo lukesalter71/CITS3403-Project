@@ -20,6 +20,11 @@ def home():
 def courses():
     return render_template('readmore.html')
 
+@main.route('/about')
+@login_required
+def about():
+    return render_template('about.html')
+
 
 #Quiz taking view function (todo)
 @main.route('/quiz/<quizid>', methods=['GET','POST'])
