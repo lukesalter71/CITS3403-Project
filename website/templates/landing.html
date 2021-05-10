@@ -83,25 +83,54 @@
     </div>
 </section>
 
-<section class="courses">
-    <h2 class="md text-center my-2">
-        Courses
-    </h2>
-    <div class="container flex">
-        <div class="card">
-            <h4>Build Muscle</h4>
-            <img src="../static/images/muscle.jpg" alt="" style="width: 300px; height: 200px">
-        </div>
-        <div class="card">
-            <h4>Build Strength</h4>
-            <img src="../static/images/strength.jpg" alt="" style="width: 300px; height: 200px">
-        </div>
-        <div class="card">
-            <h4>Lose Weight</h4>
-            <img src="../static/images/weight.jpg" alt="" style="width: 300px; height: 200px">
+<div class="post-container">
+        <div class="post-left">
+          <a href="#">
+            <img src="{{ url_for('static', filename='images/muscle.jpg') }}" style="border-radius: 20px; width: 90%;"/>
+          </a>
+    </div>
+    <div class="post-right">
+        <div class="post-content">
+            <h2 style="text-align: center;">Build Muscle</h2>
+            <p>This course introduces you to the six major muscle groups of the body, a balanced diet to acheive your muscle building goals and a set of exercises customised for building muscles.</p>
         </div>
     </div>
-</section>
+</div>
+<div class="post-container">
+    <div class="post-right">
+        <div class="post-content">
+            <h2 style="text-align: center;">Build Strength</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="post-left">
+      <a href="#">
+        <img src="{{ url_for('static', filename='images/strength.jpg') }}" style="border-radius: 20px; width: 90%;"/>
+      </a>
+    </div>
+</div>
+
+<div class="post-container">
+        <div class="post-left">
+          <a href="#">
+            <img src="{{ url_for('static', filename='images/weight.jpg') }}" style="border-radius: 20px; width: 90%;"/>
+          </a>
+    </div>
+    <div class="post-right">
+        <div class="post-content">
+            <h2>Lose Weight</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+</div>
 
 <footer class="footer bg-dark py-5">
     <div class="container grid grid-3">
