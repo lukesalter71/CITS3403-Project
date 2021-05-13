@@ -7,6 +7,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
+    # profile_pic = db.Column(db.String(20), nullable=False, default='default.jpg')
 
 
 class Courses(db.Model):

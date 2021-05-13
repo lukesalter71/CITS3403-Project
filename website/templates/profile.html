@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- GymPal CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/utilities.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/profile.css') }}"/>
+    <title>Profile - {{name}}</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container flex">
+            <h1 class="logo">
+                <span class="highlights"><i class="fas fa-dumbbell"></i> Gym</span>Pal
+            </h1>
+            
+            <ul>
+                <div class="profile">
+                    <img class="profile-pic" 
+                    src="{{ url_for('static', filename='images/profile/default.jpg') }}">
+                </div>
+            </ul>
+        </div>
+    </div>
+    <section class="course-container">
+        <div class="profile-menu">
+            <h3>Hi, {{name}}</h3>
+            <ul>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="profile-container">
+            <div class="profile-pic-container">
+                <img class="profile-pic" 
+                src="{{ url_for('static', filename='images/profile/default.jpg') }}">
+                <h1>{{name}}</h1>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="updated alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="form-container container">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Update Profile Details</legend>
+                        <div class="form-group">
+                            {{ form.name.label(class="form-control-label") }}
+        
+                            {% if form.name.errors %}
+                                {{ form.name(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.name(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.email.label(class="form-control-label") }}
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.email(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.picture.label() }}
+                            {{ form.picture(class="form-control-file") }}
+                            {% if form.picture.errors %}
+                                {% for error in form.picture.errors %}
+                                    <span class="text-danger">{{ error }}</span></br>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <div class="form-group ">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+                <aside class="sidebar">
+                    <h2 class="progress-title">Your Course Progression</h2>
+                    <div class="progress-container">
+                        <div class="mini-container">
+                            <h3>Muscle Building</h3>
+                            <div class="progress Muscle-Progress">
+                                <span class="progress-bar" style="width: 0%"></span>
+                            </div>
+                            <small>Not enrolled in course</small>
+                        </div>
+                        <div class="mini-container">
+                            <h3>Strength Building</h3>
+                            <div class="progress Strength-Progress">
+                                <span class="progress-bar" style="width: 50%"></span>
+                            </div>
+                            <small>50% completed</small>
+                        </div>
+                        <div class="mini-container">
+                            <h3>Weight Loss</h3>
+                            <div class="progress Weight-Progress">
+                                <span class="progress-bar" style="width: 100%"></span>
+                            </div>
+                            <small>Congratulations! You have finished the course.</small>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- GymPal Scripts -->
+    <script src="{{ url_for('static', filename='javascript/profile.js') }}"></script>
+    <!-- Bootstrap Scrips -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
