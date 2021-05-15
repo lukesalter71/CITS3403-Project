@@ -1,47 +1,188 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/courses.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-    crossorigin="anonymous"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/utilities.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/courses.css') }}">
+    <!-- Font Awesome Dumbbell -->
+    <script src="https://kit.fontawesome.com/5c1e507e2a.js" crossorigin="anonymous"></script>
+    <title>Pathways</title>
 </head>
 <body>
-<div class="flexbox">
-    <h1 class="logo"; style="color: whitesmoke">
-        <span style="color: #e76f51"><i class="fas fa-dumbbell"></i> Gym</span>Pal
-    </h1>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Profile</a>
-        <a href="/courses">Courses</a>
-        <a href="#">Contact</a>
-        <a href="/about">About</a>
-        <a href="/logout">Logout</a>
-    </nav>
-</div>
-<section class="main">
-    <h1>
-        Please select a course to get started:
-    </h1>
-</section>
-<section class="courses">
-    <div class="container-flex">
-        <figure class="card">
-            <h4>Build Muscle</h4>
-            <img class="cardImage" src="../static/images/muscle.jpg" style="width: 300px; height: 200px;" alt="">
-        </figure>
-        <figure class="card">
-            <h4>Build Strength</h4>
-            <img class="cardImage" src="../static/images/strength.jpg" style="width: 300px; height: 200px;" alt="">
-        </figure>
-        <figure class="card">
-            <h4>Lose Weight</h4>
-            <img class="cardImage" src="../static/images/weight.jpg" style="width: 300px; height: 200px;" alt="">
-        </figure>
-    </div>
-</section>
+    <header id="hero" class="hero">
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <div class="container flex">
+                <h1 class="logo">
+                    <span class="highlights"><i class="fas fa-dumbbell"></i> Gym</span>Pal
+                </h1>
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                        <li><a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Learning Pathways -->
+        <div class="pathways-container">
+            <h1>Choose your learning pathway</h1>
+            <div class="pathways">
+                <a href="#more-muscle">
+                    <div id="muscle-container" class ="card-btn">
+                            <div id="muscle-img" class="card-btn-img"></div>
+                            <p>Build Muscle</p>
+                    </div>
+                </a>
+                <a href="#more-strength">
+                    <div id="strength-container" class ="card-btn">
+                        <div id="strength-img" class="card-btn-img"></div>
+                        <p>Build Strength</p>
+                    </div>
+                </a>
+                <a href="#more-weight">
+                    <div id="weight-container" class ="card-btn">
+                        <div id="weight-img" class="card-btn-img"></div>
+                        <p>Lose Weight</p>
+                    </div>
+                </a>
+            </div>
+        </div> 
+    </header>
+    <!-- More Description -->
+    <section id="more-muscle" class="more-description">
+        <h1><span class="highlights">Muscle</span> Building Pathway</h1>
+        <div class="description-container">
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Muscle Groups</h2>
+                    <div id="anatomy-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 1</h3></li>
+                    <li>This course introduces you to six major muscle groups of the body</li>
+                    <li>These are: chest, shoulders, back, arms, abs and legs</li>
+                    <li>All the three pathways start with this course</li>
+                </ul>
+            </div>
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Nutrition</h2>
+                    <div id="nutrition-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 2</h3></li>
+                    <li>Muscle building is centered around diet and nutrition</li>
+                    <li>This course will introduce you to a balanced diet to acheive your muscle building goals</li>
+                </ul>
+            </div>
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Exercises</h2>
+                    <div id="exercise-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 3</h3></li>
+                    <li>Muscle building or bulking requires a specific training program</li>
+                    <li>This course will introduce you to a set of exercises customised for building muscles</li>
+                </ul>
+            </div>
+        </div>
+        <ul class="description-btns">
+            <li><a href="#hero" class="btn btn-outline back-btn">Go Back</a></li>
+            <li><a href="{{ url_for('main.home') }}" class="btn btn-outline">Sign Up</a></li>
+        </ul>
+    </section>  
+    <section id="more-strength" class="more-description">
+        <h1><span class="highlights">Strength</span> Building Pathway</h1>
+        <div class="description-container">
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Muscle Groups</h2>
+                    <div id="anatomy-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 1</h3></li>
+                    <li>This course introduces you to six major muscle groups of the body</li>
+                    <li>These are: chest, shoulders, back, arms, abs and legs</li>
+                    <li>All the three pathways start with this course</li>
+                </ul>
+            </div>
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Nutrition</h2>
+                    <div id="nutrition-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 2</h3></li>
+                    <li>Proper nutrition is essential for strength training</li>
+                    <li>This course will introduce you to a balanced diet to acheive your stregnth training goals</li>
+                </ul>
+            </div>
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Exercises</h2>
+                    <div id="exercise-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 3</h3></li>
+                    <li>Strength training exercises and repetitions vary from muscle building</li>
+                    <li>This course will introduce you to a set of exercises customised for strength building</li>
+                </ul>
+            </div>
+        </div>
+        <ul class="description-btns">
+            <li><a href="#hero" class="btn btn-outline back-btn">Go Back</a></li>
+            <li><a href="{{ url_for('main.home') }}" class="btn btn-outline">Sign Up</a></li>
+        </ul>
+    </section>  
+    <section id="more-weight" class="more-description">
+        <h1><span class="highlights">Weight</span> Loss Pathway</h1>
+        <div class="description-container">
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Muscle Groups</h2>
+                    <div id="anatomy-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 1</h3></li>
+                    <li>This course introduces you to six major muscle groups of the body</li>
+                    <li>These are: chest, shoulders, back, arms, abs and legs</li>
+                    <li>All the three pathways start with this course</li>
+                </ul>
+            </div>
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Nutrition</h2>
+                    <div id="nutrition-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 2</h3></li>
+                    <li>Weight loss is more about nutrition than exercise. The weight loss equation includes a healthy, balanced diet plan</li>
+                    <li>This course will introduce you to a balanced diet to acheive your weight loss goals</li>
+                </ul>
+            </div>
+            <div class="description-card">
+                <div class="seperator">
+                    <h2>Exercises</h2>
+                    <div id="exercise-img"></div>
+                </div>
+                <ul class="description-list">
+                    <li><h3>Leve 3</h3></li>
+                    <li>Weight loss exercises are generally more intense and burn more calories</li>
+                    <li>This course will introduce you to a set of exercises customised for weight loss</li>
+                </ul>
+            </div>
+        </div>
+        <ul class="description-btns">
+            <li><a href="#hero" class="btn btn-outline back-btn">Go Back</a></li>
+            <li><a href="{{ url_for('main.home') }}" class="btn btn-outline">Sign Up</a></li>
+        </ul>
+    </section>  
+    <script src="{{ url_for('static', filename='javascript/readmore.js') }}"></script>  
 </body>
 </html>

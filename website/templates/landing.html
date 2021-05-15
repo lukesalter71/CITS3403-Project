@@ -17,10 +17,18 @@
             <span class="highlights"><i class="fas fa-dumbbell"></i> Gym</span>Pal
         </h1>
         <nav>
+            {% if current_user.is_authenticated %}
             <ul>
-                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('main.courses') }}" class="navbar-item">Courses</a></li>
+                <li><a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a></li>
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a></li>
+            </ul>
+            {% else %}
+            <ul>
+                <li><a href="{{ url_for('main.home') }}" class="navbar-item">Home</a></li>
                 <li><a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a></li>
             </ul>
+            {% endif %}
         </nav>
     </div>
 </div>
@@ -30,7 +38,7 @@
             <h1>Body Building Made Easy</h1>
             <p>Come and learn with us all things fitness. Our courses cover a wide range of topics from Strength &
                 Muscle building and even building your meals</p>
-            <a href="/readmore" class="btn btn-outline">Read More</a>
+            <a href="{{ url_for('main.courses') }}" class="btn btn-outline">Read More</a>
         </div>
 
         <div class="showcase-form card">
@@ -82,56 +90,6 @@
         </div>
     </div>
 </section>
-
-<div class="post-container">
-        <div class="post-left">
-          <a href="#">
-            <img src="{{ url_for('static', filename='images/muscle.jpg') }}" style="border-radius: 20px; width: 90%;"/>
-          </a>
-    </div>
-    <div class="post-right">
-        <div class="post-content">
-            <h2 style="text-align: center;">Build Muscle</h2>
-            <p>This course introduces you to the six major muscle groups of the body, a balanced diet to acheive your muscle building goals and a set of exercises customised for building muscles.</p>
-        </div>
-    </div>
-</div>
-<div class="post-container">
-    <div class="post-right">
-        <div class="post-content">
-            <h2 style="text-align: center;">Build Strength</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-    <div class="post-left">
-      <a href="#">
-        <img src="{{ url_for('static', filename='images/strength.jpg') }}" style="border-radius: 20px; width: 90%;"/>
-      </a>
-    </div>
-</div>
-
-<div class="post-container">
-        <div class="post-left">
-          <a href="#">
-            <img src="{{ url_for('static', filename='images/weight.jpg') }}" style="border-radius: 20px; width: 90%;"/>
-          </a>
-    </div>
-    <div class="post-right">
-        <div class="post-content">
-            <h2>Lose Weight</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-</div>
-
 <footer class="footer bg-dark py-5">
     <div class="container grid grid-3">
         <div>

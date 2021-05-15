@@ -1,0 +1,67 @@
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fcfcfc;
+  border-radius: 10%;
+}
+
+.form-container h1 {
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid var(--primary-color);
+  font-weight: 900;
+}
+
+.form-container form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+form .field {
+  position: relative;
+  border-bottom: 2px solid var(--highlight-color);
+  margin: 30px 0;
+}
+
+.field input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.field input:focus {
+    outline: none !important;
+}
+
+.checkbox {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.checkbox input {
+    cursor: pointer;
+}
+
+.notification.error {
+    text-align: center;
+    color: var(--error-color);
+}
+
+.notification.success {
+  text-align: center;
+  color: var(--success-color);
+}
+
+
+.singup_link a {
+  color: var(--highlight-color);
+  font-weight: 600;
+}
+

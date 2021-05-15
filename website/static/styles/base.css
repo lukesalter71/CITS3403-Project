@@ -144,7 +144,8 @@ pre {
 }
 
 .showcase-form input[type="text"],
-.showcase-form input[type="email"] {
+.showcase-form input[type="email"],
+.showcase-form input[type="password"] {
     border: 0;
     border-bottom: 1px solid #b4becb;
     width: 100%;
@@ -465,4 +466,13 @@ footer {
     font-weight: bolder;
     font-size: 300%;
     padding: 9px;
+}
+
+/* Changes automatic background input color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px #fcfcfc inset !important;
 }

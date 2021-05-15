@@ -30,8 +30,9 @@
         <div class="profile-menu">
             <h3>Hi, {{name}}</h3>
             <ul>
-                <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                <li><a href="{{ url_for('main.courses') }}">Courses</a></li>
+                <li><a href="{{ url_for('auth.logout')}}">Logout</a></li>
             </ul>
         </div>
         <div class="profile-container">
