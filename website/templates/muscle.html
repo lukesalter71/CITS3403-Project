@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/utilities.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/course_temp.css') }}"/>
+    <title>Profile - {{name}}</title>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="logo">
+            <span class="highlights"><i class="fas fa-dumbbell"></i> Gym</span>Pal
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.home') }}" class="navbar-item">Home</a></li>
+                <li><a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="course-container">
+        <aside class="course-nav">
+            <h1>Overview</h1>
+            <ul>
+                <div class="nav-elements">
+                    <li>Muscle groups</li>
+                    <input type="checkbox" name="muscle-groups" id="">
+                </div>
+                <div class="nav-elements">
+                    <li>Nutrition</li>
+                    <input type="checkbox" name="muscle-nutrition" id="">
+                </div>
+                <div class="nav-elements">
+                    <li>Exercises</li>
+                    <input type="checkbox" name="muscle-exercises" id="">
+                </div>
+            </ul>
+        </aside>
+        <section class="course-content">
+            <article class="muscle-groups">
+            </article>
+            <article class="muscle-nutrition"></article>
+            <article class="muscle-exercises"></article>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='javascript/course-temp.js') }}"></script>
+</body>
+</html>
