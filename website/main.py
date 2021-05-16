@@ -1,6 +1,8 @@
+import sqlite3
+
 from flask import Blueprint, render_template, session, redirect, url_for, flash, request, jsonify
 from flask_login import login_required, current_user
-from . import db, forms, json_questions
+from . import db, forms, json_questions, models
 import secrets
 import os
 
@@ -78,6 +80,38 @@ def questions():
 @main.route('/score', methods=['POST'])
 @login_required
 def score():
+    name = current_user.name
     quiz_score = request.get_json(force=True)
-    print(quiz_score)
+    if len(quiz_score) >= 1:
+        score = quiz_score["score"]
+        new_score = models.Score(name=name, score=score)
+        db.session.add(new_score)
+        db.session.commit()
+        result = {"Name": name, "Score": score}
+
+    print(f"[{result}]")
     return 'OK'
+
+@main.route('/quiz-history', methods=['GET'])
+@login_required
+def marks():
+    name = current_user.name
+    conn = sqlite3.connect('db.sqlite3')
+    c = conn.cursor()
+    c.execute('SELECT name AS student_name, COUNT(*) AS sumbissions, AVG(score) FROM score WHERE name = ? GROUP BY name', [name])
+    marks = [dict(name=row[0], submissions=row[1], average=row[2]) for row in c.fetchall()]
+    return jsonify(marks[0])
+
+# Test result
+@main.route('/test-score', methods=['POST'])
+def test():
+    name = "Abdi"
+    print(name)
+    quiz_score = request.get_json(force=True)
+    if len(quiz_score) >= 1:
+        new_score = models.Score(name=name, score=quiz_score)
+        print(new_score)
+        #db.session.add(new_score)
+        #db.session.commit()
+
+    return 'ok'
