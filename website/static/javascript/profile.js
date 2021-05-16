@@ -6,17 +6,16 @@ const average= document.getElementById('average');
 const submissions = document.getElementById('submissions');
 
 let jsondata = "";
-let apiUrl = "/quiz-history";
 
-async function getJson(url) {
-    let response = await fetch(url);
+async function getJson() {
+    let response = await fetch('/quiz-history');
     let data = await response.json()
     return data;
 }
 
 async function main() {
     // Get stats from database
-    jsondata = await getJson(apiUrl)
+    jsondata = await getJson()
     console.log(jsondata);
     username.innerText = jsondata['name'] + "'s quiz history";
     average.innerText = "Your average mark for the quiz is  " + Math.ceil(jsondata['average']/10) + "/26";
