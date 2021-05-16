@@ -13,7 +13,9 @@ def create_app():
     CORS(app)
     app.config['SECRET_KEY'] = 'thisismysecretkeydonotstealit'
     # Local Host
-    app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), os.path.pardir, 'db.sqlite3')}"
+    # app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), os.path.pardir, 'db.sqlite3')}"
+    #Prod
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 
     db.init_app(app)
     migrate.init_app(app, db, render_as_batch=True)
