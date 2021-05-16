@@ -8,7 +8,9 @@ const submissions = document.getElementById('submissions');
 let jsondata = "";
 
 async function getJson() {
-    let response = await fetch("/quiz-history");
+    let response = await fetch("/quiz-history", {
+        method: "GET"
+    });
     let data = await response.json()
     return data;
 }
@@ -21,7 +23,7 @@ async function main() {
     average.innerText = "Your average mark for the quiz is  " + Math.ceil(jsondata['average']/10) + "/26";
     submissions.innerText = "You have attempted the quiz " + jsondata['submissions'] + " times";
 }
- main();
+ main().then(r => console.log(r));
 
 // Event Listeners
 profile.addEventListener('click', function(){
