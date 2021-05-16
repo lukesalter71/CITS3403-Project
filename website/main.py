@@ -92,7 +92,7 @@ def score():
     print(f"[{result}]")
     return 'OK'
 
-@main.route('/quiz-history', methods=['GET'])
+@main.route('/quiz-history')
 @login_required
 def marks():
     name = current_user.name

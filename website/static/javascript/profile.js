@@ -8,7 +8,7 @@ const submissions = document.getElementById('submissions');
 let jsondata = "";
 
 async function getJson() {
-    let response = await fetch('/quiz-history');
+    let response = await fetch("/quiz-history");
     let data = await response.json()
     return data;
 }
