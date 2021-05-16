@@ -84,15 +84,23 @@ def score():
     quiz_score = request.get_json(force=True)
     if len(quiz_score) >= 1:
         score = quiz_score["score"]
-        new_score = models.Score(name=name, score=score)
-        db.session.add(new_score)
-        db.session.commit()
-        result = {"Name": name, "Score": score}
+        try:
+            # Connecting to database
+            conn = sqlite3.connect('db.sqlite3')
+            # Getting cursor
+            c = conn.cursor()
+            # Adding data
+            c.execute('INSERT INTO Score (name, score) VALUES (?, ?)', [name, score])
+            # Applying changes
+            conn.commit()
+        except:
+            print("An error has occured")
 
-    print(f"[{result}]")
+        result = {"Name": name, "Score": score}
+        print(f"[{result}]")
     return 'OK'
 
-@main.route('/quiz-history')
+@main.route('/quiz-history', methods=['GET'])
 @login_required
 def marks():
     name = current_user.name

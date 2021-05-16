@@ -24,5 +24,4 @@ saveHighScore = (e) => {
     }).then(res => {
         console.log("Request complete! response:", res);
     });
-    window.location.assign('/profile');
 };
