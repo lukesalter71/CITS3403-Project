@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/utilities.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/course_temp.css') }}"/>
+    <title>GymPal</title>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="logo">
+            <span class="highlights"><i class="fas fa-dumbbell"></i> Gym</span>Pal
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.home') }}" class="navbar-item">Home</a></li>
+                <li><a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="course-container">
+        <aside class="course-nav">
+            <h1>Overview</h1>
+            <ul>
+                <div class="nav-elements">
+                    <li>Muscle groups</li>
+                    <input type="checkbox" name="muscle-groups" id="muscle-check">
+                </div>
+                <div class="nav-elements">
+                    <li>Nutrition</li>
+                    <input type="checkbox" name="muscle-nutrition" id="nutrition-check">
+                </div>
+                <div class="nav-elements">
+                    <li>Exercises</li>
+                    <input type="checkbox" name="muscle-exercises" id="exercise-check">
+                </div>
+            </ul>
+        </aside>
+        <section class="course-content">
+            <article class="muscle-groups show">
+                <div class="left-col">
+                    <div class="muscles">
+                        <h1>Chest</h1>
+                        <p>The chest muscles are divided into three groups based on muscle fiber directions. Upper chest fibers go from high to low. In constast, lower chest fibers go from low to high. The middle chest fibers contribute to horizontal movements of the arm.  </p>
+                        <img src="{{ url_for('static', filename='images/course_content/muscle_groups/chest.jpg') }}" alt="Chest Muscles">
+                    </div>
+                    <div class="muscles">
+                        <h1>Back</h1>
+                        <p>The trapezius functions to elevate the scapula. Infraspinatus is one of the muscles of the rotator cuff which helps in stabilising the shoulder. The teres major is a thick muscle which along side latissimus dorsi draw the previously raised arm downwards and backwards. Rhomboids pull shoulder blades together. The erector spinae group straighten the back and provide side-to-side rotation.</p>
+                        <img src="{{ url_for('static', filename='images/course_content/muscle_groups/back.jpg') }}" alt="Back Muscles">
+                    </div>
+                    <div class="muscles">
+                        <h1>Shoulders</h1>
+                        <p>Anterior deltoid muscle assists the upper chest muscle in flexing the shoulders. The lateral deltoids help to raise the arms by abducting the shoulders. In constrast to the anterior deltoids, postorior deltoids act with the latissimus dorsi exteranlly rotate the arms and produce its extention.</p>
+                        <img src="{{ url_for('static', filename='images/course_content/muscle_groups/shoulders.jpg') }}" alt="Shoulder Muscles">
+                    </div>
+                </div>
+                <div class="right-col">
+                    <div class="muscles">
+                        <h1>Biceps</h1>
+                        <p>The biceps act as elbow flexors and a supinators. The long head and the short head have different attachments and fiber directions. The short head is attached to the head of the humerus bone while the long head is attached to the shoulder. The brachialis has a very crucial role in the width of the biceps and assists in elbow flexion.</p>
+                        <img src="{{ url_for('static', filename='images/course_content/muscle_groups/biceps.jpg') }}" alt="chest">
+                    </div>
+                    <div class="muscles">
+                        <h1>Tricpes</h1>
+                        <p>The lateral and medial heads of the triceps are only involved in elbow extension. However the long head is attached to the scapula and varies in tension depending on the position of the scapula.</p>
+                        <img src="{{ url_for('static', filename='images/course_content/muscle_groups/triceps.jpg') }}" alt="chest">
+                    </div>
+                    <div class="muscles">
+                        <h1>Legs</h1>
+                        <p>The rectus femoris has an attachment to the hip and is a weak heap flexor. Vastus lateralis and medialis muscles extend from the head of the femur to the knee and therefore act as knee extensors. The hamstring muscle group in the back of the leg are involved in knee flexion.</p>
+                        <img src="{{ url_for('static', filename='images/course_content/muscle_groups/legs.jpg') }}" alt="chest">
+                    </div>
+                    <button class="btn btn-primary" id="muscle-quiz-btn">Continue to Quiz</button>
+                </div>
+            </article>
+            <div class="quiz-container">
+                <form name="quiz" id="quiz">
+                    <div class="left-col">
+                        <div class="question-container">
+                            <h1>Q1 - What is the name of this muscle?</h1>
+                            <img src="{{ url_for('static', filename='images/course_content/muscle_groups/rectus_femoris.jpg') }}">
+                            <p><input type="radio" name="q1" value="Biceps Femoris">Biceps Femoris</p>
+                            <p><input type="radio" name="q1" value="Vastus Medialis">Vastus Medialis</p>
+                            <p><input type="radio" name="q1" value="Rectus Femoris">Rectus Femoris</p>
+                            <p><input type="radio" name="q1" value="Semitendinosus">Semitendinosus</p>
+                        </div>
+                        <div class="question-container">
+                            <h1>Q2 - What is the function of trapezius muscle?</h1>
+                            <p><input type="radio" name="q2" value="Arm Flexion">Arm Flexion</p>
+                            <p><input type="radio" name="q2" value="Arm Rotation">Arm Rotation</p>
+                            <p><input type="radio" name="q2" value="Scapula Depression">Scapula Depression</p>
+                            <p><input type="radio" name="q2" value="Scapula Elevation">Scapula Elevation</p>
+                        </div>
+                        <button class="btn btn-primary" id="muscle-goback">Go Back</button>
+                    </div>
+                    <div class="right-col">
+                        <div class="question-container right">
+                            <h1>Q3 - What is the name of this muscle?</h1>
+                            <img src="{{ url_for('static', filename='images/course_content/muscle_groups/lat.jpg') }}">
+                            <p><input type="radio" name="q3" value="Rhomboids">Rhomboids</p>
+                            <p><input type="radio" name="q3" value="latissimus Dorsi">latissimus Dorsi</p>
+                            <p><input type="radio" name="q3" value="Teres Major">Teres Major</p>
+                            <p><input type="radio" name="q3" value="Teres Minor">Teres Minor</p>
+                        </div>
+                        <div class="question-container right">
+                            <h1>Q4 - What is the function of Posterior deltoids?</h1>
+                            <p><input type="radio" name="q4" value="External Rotation of arms">External Rotation of arms</p>
+                            <p><input type="radio" name="q4" value="Internal Rotation of arms">Internal Rotation of arms</p>
+                            <p><input type="radio" name="q4" value="Arm Flexion">Arm Flexion</p>
+                            <p><input type="radio" name="q4" value="Arm Extension">Arm Extension</p>
+                        </div>
+                        <button class="btn btn-primary" id="muscle-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <article class="muscle-nutrition"></article>
+            <article class="muscle-exercises"></article>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='javascript/course-temp.js') }}"></script>
+</body>
+</html>
