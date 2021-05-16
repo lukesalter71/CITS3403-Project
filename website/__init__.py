@@ -1,18 +1,21 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
+from flask_migrate import Migrate
+from flask_cors import CORS
 
 db = SQLAlchemy()
+migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-
+    CORS(app)
     app.config['SECRET_KEY'] = 'thisismysecretkeydonotstealit'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 
     db.init_app(app)
-
+    migrate.init_app(app, db, render_as_batch=True)
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
