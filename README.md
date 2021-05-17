@@ -164,6 +164,18 @@ All ```HTML``` files will live inside of the ```Templates folder```, all images,
 
 [Flask Documentation](https://flask.palletsprojects.com/)
 
+### Database Structure
+![Image of Database Entity-Relation Diagram](https://i.imgur.com/PetiIZM.png)<br />
+Pictured is the database schema for our web-app. <br />
+<br />
+User table - Stores the data for user information.<br />
+Courses - Course information.<br />
+Enrolments - Stores information on which courses a user is enrolled in. A user can enrol in many courses.<br />
+Quizzes - Quiz information relating directly below the Courses table via 'course_id'.<br />
+Question_Bank - Stores the questions for the entire database. Relates back to the Quizzes table using 'quiz_id'.<br />
+Answer - Stores the choices for all questions in the database, both Multi-choice and Text-Answer questions. We distinguish each with the 'question_type' field in Question_bank, the table Answer relates back to via question_id.<br />
+
+
 ### Other
 
 Feel free to update this doc if you think its missing stuff!
